@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     // MARK: - Properties
     var animator: UIDynamicAnimator!
     var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,12 @@ class ViewController: UIViewController {
         animator = UIDynamicAnimator(referenceView: view)
         gravity = UIGravityBehavior(items: [square])
         animator.addBehavior(gravity)
+        
+        // Collision behavior
+        collision = UICollisionBehavior(items: [square])
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+        
     }
 }
 
