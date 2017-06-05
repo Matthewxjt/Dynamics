@@ -16,9 +16,15 @@ class ViewController: UIViewController {
     // MARK: - View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Square object
         let square = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
         square.backgroundColor = .gray
         view.addSubview(square)
+        
+        // Animation and Gravity
+        animator = UIDynamicAnimator(referenceView: view)
+        gravity = UIGravityBehavior(items: [square])
+        animator.addBehavior(gravity)
     }
 }
 
